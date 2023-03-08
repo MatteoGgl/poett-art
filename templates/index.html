@@ -1,0 +1,12 @@
+{% extends "no-style-please/templates/index.html" %}
+{% block content %}
+{{ section.content | safe }}
+
+{% set verses = get_section(path="verso/_index.md") %}
+
+{% for verse in verses.pages %}
+    <a href="{{ verse.permalink }}">{{ verse.title }}</a> | {{ verse.date}}
+    <br />
+{% endfor %}
+
+{% endblock content %}
